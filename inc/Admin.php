@@ -31,7 +31,7 @@ final class Admin
 
     public function admin_menu()
     {
-        echo  \add_options_page(\__('JWT Authentication', 'ww-jwt-auth'), \__('JWT Auth', 'ww-jwt-auth'), 'manage_options', 'ww-jwt-auth', [AdminSettings::class, 'settingsPage']);
+        \add_options_page(\__('JWT Authentication', 'ww-jwt-auth'), \__('JWT Auth', 'ww-jwt-auth'), 'manage_options', 'ww-jwt-auth', [AdminSettings::class, 'settingsPage']);
     }
 
     public function plugin_action_links(array $links) : array
