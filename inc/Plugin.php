@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace WildWolf\JwtAuth;
 
@@ -42,6 +42,8 @@ final class Plugin
 
     public function init(): void
     {
+        \load_plugin_textdomain('ww-jwt-auth', /** @scrutinizer ignore-type */ false, \plugin_basename(\dirname(__DIR__)) . '/lang/');
+
         Settings::instance();
 
         \add_filter('authenticate',           [$this, 'authenticate'], 10, 3);
@@ -106,11 +108,11 @@ final class Plugin
             try {
                 $decoded = JWT::decode($token, $secret, [Settings::instance()->getAlgorithm()]);
                 if (empty($decoded->iss) || empty($decoded->sub)) {
-                    throw new \UnexpectedValueException('Malformed token');
+                    throw new \UnexpectedValueException(\__('Malformed token', 'ww-jwt-auth'));
                 }
 
                 if ($decoded->iss !== \get_bloginfo('url')) {
-                    throw new \UnexpectedValueException('Token issuer does not match the server');
+                    throw new \UnexpectedValueException(\__('Token issuer does not match the server', 'ww-jwt-auth'));
                 }
 
                 $user = new \WP_User($decoded->sub);
@@ -119,7 +121,7 @@ final class Plugin
                     return $user;
                 }
 
-                throw new \UnexpectedValueException('No such user');
+                throw new \UnexpectedValueException(\__('No such user', 'ww-jwt-auth'));
             } catch (\Exception $e) {
                 $this->jwt_error = $e;
                 return new \WP_Error('authentication_failed', $e->getMessage(), ['status' => 403]);

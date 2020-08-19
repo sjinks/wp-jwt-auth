@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace WildWolf\JwtAuth;
 
@@ -17,8 +17,6 @@ final class Admin
 
     private function __construct()
     {
-        \load_plugin_textdomain('ww-jwt-auth', /** @scrutinizer ignore-type */ false, \plugin_basename(\dirname(__DIR__)) . '/lang/');
-
         \add_action('admin_init', [$this, 'admin_init']);
         \add_action('admin_menu', [$this, 'admin_menu']);
     }
@@ -33,7 +31,7 @@ final class Admin
 
     public function admin_menu()
     {
-        \add_options_page('JWT Authentication', 'JWT Auth', 'manage_options', 'ww-jwt-auth', [AdminSettings::class, 'settingsPage']);
+        echo  \add_options_page(\__('JWT Authentication', 'ww-jwt-auth'), \__('JWT Auth', 'ww-jwt-auth'), 'manage_options', 'ww-jwt-auth', [AdminSettings::class, 'settingsPage']);
     }
 
     public function plugin_action_links(array $links) : array
