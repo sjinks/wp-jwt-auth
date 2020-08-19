@@ -22,7 +22,7 @@ class PluginTest extends WP_UnitTestCase
     {
         $this->assertNull(Plugin::instance()->getUserByToken());
         $this->assertEquals(1, Plugin::instance()->determine_current_user(1));
-        $this->assertNull(null, Plugin::instance()->determine_current_user(null));
+        $this->assertNull(Plugin::instance()->determine_current_user(null));
         $this->assertNull(Plugin::instance()->getJwtError());
         $this->assertNull(Plugin::instance()->getJwtUserId());
     }
