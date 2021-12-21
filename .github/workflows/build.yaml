@@ -15,10 +15,10 @@ jobs:
           - "7.4"
     steps:
       - name: Check out source code
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.0
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@2.12.0
+        uses: shivammathur/setup-php@2.16.0
         with:
           php-version: ${{ matrix.php }}
 
@@ -30,7 +30,7 @@ jobs:
         run: composer validate
 
       - name: Cache Composer packages
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-php-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
