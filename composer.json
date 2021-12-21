@@ -10,26 +10,34 @@
             "homepage": "https://wildwolf.name/"
         }
     ],
-    "archive": {
-        "exclude": [
-            "/build",
-            "/wordpress",
-            "/wordpress-tests-lib",
-            "/composer.*",
-            "/.gitignore"
-        ]
-    },
     "autoload": {
-        "psr-4": {
-            "WildWolf\\JwtAuth\\": "inc/"
-        }
+        "classmap": ["inc"]
     },
     "require": {
-        "php": ">= 7.2",
-        "firebase/php-jwt": "^5.2"
+        "php": ">= 7.4",
+        "firebase/php-jwt": "^5.2",
+        "wildwolf/singleton-trait": "^1.0",
+        "wildwolf/wp-request-context": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7 <8",
-        "johnpbloch/wordpress": "^5.5"
+        "automattic/vipwpcs": "^2.3",
+        "johnpbloch/wordpress-core": "^5.8",
+        "php-stubs/wordpress-stubs": "^5.8",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpunit/phpunit": "^7",
+        "psalm/plugin-phpunit": "^0.16.1",
+        "vimeo/psalm": "^4.15",
+        "wildwolf/wordpress-test-library-stubs": "^5.8",
+        "wp-coding-standards/wpcs": "^2.3",
+        "wp-phpunit/wp-phpunit": "^5.8",
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "phpcs": "phpcs",
+        "phpcs:fix": "phpcbf",
+        "psalm": "psalm --long-progress --no-cache"
     }
 }
