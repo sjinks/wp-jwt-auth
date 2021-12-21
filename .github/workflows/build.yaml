@@ -20,11 +20,13 @@ jobs:
       matrix:
         php:
           - "7.4"
+          - "8.0"
+          - "8.1"
         wpmu:
           - "0"
           - "1"
         wordpress:
-          - "5.8"
+          - "5.7"
           - latest
           - trunk
     services:
@@ -62,7 +64,7 @@ jobs:
             ${{ runner.os }}-php-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        run: composer install --prefer-dist --no-progress --no-interaction --ignore-platform-reqs
 
       - name: Verify MariaDB connection
         run: |

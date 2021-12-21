@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "202e1449de6ea5b2763e84bac3211d78",
+    "content-hash": "fc8cb63036ea543e84c4ccc3909b5767",
     "packages": [
         {
             "name": "composer/installers",
@@ -4305,6 +4305,54 @@
             },
             "abandoned": "symfony/filesystem",
             "time": "2015-12-17T08:42:14+00:00"
+        },
+        {
+            "name": "wildwolf/phpunit7-php8-helper",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sjinks/phpunit7-php8-helper.git",
+                "reference": "53815620189bcd13a3b8f7a3b58a5bf69c925fdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sjinks/phpunit7-php8-helper/zipball/53815620189bcd13a3b8f7a3b58a5bf69c925fdc",
+                "reference": "53815620189bcd13a3b8f7a3b58a5bf69c925fdc",
+                "shasum": ""
+            },
+            "require": {
+                "phpunit/php-token-stream": "^3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Kolesnykov",
+                    "email": "volodymyr@wildwolf.name"
+                }
+            ],
+            "description": "A helper for PHPUnit 7 to generate code coverage under PHP 8",
+            "keywords": [
+                "helper",
+                "php8",
+                "phpunit",
+                "phpunit code coverage",
+                "phpunit-code-coverage",
+                "phpunit7"
+            ],
+            "support": {
+                "issues": "https://github.com/sjinks/phpunit7-php8-helper/issues",
+                "source": "https://github.com/sjinks/phpunit7-php8-helper/tree/1.0.1"
+            },
+            "time": "2021-09-06T08:53:38+00:00"
         },
         {
             "name": "wildwolf/wordpress-test-library-stubs",
