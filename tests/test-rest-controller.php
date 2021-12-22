@@ -214,4 +214,44 @@ class Test_REST_Controller extends \WP_Test_REST_TestCase {
 		self::assertObjectHasAttribute( 'status', $response );
 		self::assertEquals( 200, $response->status );
 	}
+
+	/**
+	 * @dataProvider data_verify_incorrect_token
+	 */
+	public function test_verify_incorrect_token( string $token ): void {
+		$_SERVER['AUTH_BEARER_TOKEN'] = $token;
+
+		Plugin::instance()->get_user_by_token();
+		$response = $this->dispatch_request( 'GET', REST_Controller::REST_NS . '/verify' );
+		self::assertObjectHasAttribute( 'status', $response );
+		self::assertEquals( 403, $response->status );
+	}
+
+	/**
+	 * @psalm-return iterable<string, array{string}>
+	 */
+	public function data_verify_incorrect_token(): iterable {
+		$expired = JWT::encode( [
+			'sub' => 1,
+			'iss' => get_bloginfo( 'url' ),
+			'exp' => time() - 86400,
+		], self::SECRET, self::ALGO );
+
+		$too_early = JWT::encode( [
+			'sub' => 1,
+			'iss' => get_bloginfo( 'url' ),
+			'nbf' => time() + 86400,
+		], self::SECRET, self::ALGO );
+
+		$wrong_key = JWT::encode( [
+			'sub' => 1,
+			'iss' => get_bloginfo( 'url' ),
+		], '123' . self::SECRET , self::ALGO );
+
+		return [
+			'expired'   => [ $expired ],
+			'too early' => [ $too_early ],
+			'wrong key' => [ $wrong_key ],
+		];
+	}
 }
