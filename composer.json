@@ -2,7 +2,14 @@
     "name": "wildwolf/wp-jwt-auth",
     "type": "wordpress-plugin",
     "description": "WordPress plugin for JWT authentication for the REST API",
-    "keywords": ["wordpress", "jwt", "rest", "authentication", "plugin", "security"],
+    "keywords": [
+        "wordpress",
+        "jwt",
+        "rest",
+        "authentication",
+        "plugin",
+        "security"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -11,10 +18,13 @@
         }
     ],
     "autoload": {
-        "classmap": ["inc"]
+        "classmap": [
+            "inc"
+        ]
     },
     "require": {
         "php": ">= 7.4",
+        "composer/installers": "^2.0",
         "firebase/php-jwt": "^5.2",
         "wildwolf/singleton-trait": "^1.0",
         "wildwolf/wp-request-context": "^1.0"
@@ -29,12 +39,16 @@
         "vimeo/psalm": "^4.15",
         "wildwolf/phpunit7-php8-helper": "^1.0",
         "wildwolf/wordpress-test-library-stubs": "^5.8",
+        "wp-cli/i18n-command": "^2.2",
         "wp-coding-standards/wpcs": "^2.3",
         "wp-phpunit/wp-phpunit": "^5.8",
         "yoast/phpunit-polyfills": "^1.0"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4"
+        }
     },
     "scripts": {
         "phpcs": "phpcs",

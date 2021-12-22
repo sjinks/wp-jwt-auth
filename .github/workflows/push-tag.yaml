@@ -19,7 +19,7 @@ jobs:
         run: |
           git archive --format=tar --prefix=wp-jwt-auth/ HEAD | (cd /var/tmp/ && tar xf -)
           cp composer.lock /var/tmp/wp-jwt-auth/
-          (cd /var/tmp/wp-jwt-auth && composer install --no-dev --no-interaction)
+          (cd /var/tmp/wp-jwt-auth && composer install --no-dev --no-interaction && composer remove composer/installers --no-interaction)
           (cd /var/tmp && zip -r -9 wp-jwt-auth.zip wp-jwt-auth)
 
       - name: Release
