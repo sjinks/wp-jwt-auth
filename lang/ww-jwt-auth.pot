@@ -1,0 +1,76 @@
+# Copyright (C) 2021 Volodymyr Kolesnykov
+# This file is distributed under the same license as the WW JWT Auth plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WW JWT Auth 2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-jwt-auth\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-12-22T03:49:57+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: ww-jwt-auth\n"
+
+#. Plugin Name of the plugin
+msgid "WW JWT Auth"
+msgstr ""
+
+#. Description of the plugin
+msgid "WordPress plugin for JWT authentication for the REST API"
+msgstr ""
+
+#. Author of the plugin
+msgid "Volodymyr Kolesnykov"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wildwolf.name/"
+msgstr ""
+
+#: inc/class-admin-settings.php:27
+msgid "JWT Auth Settings"
+msgstr ""
+
+#: inc/class-admin-settings.php:34
+#: views/settings.php:3
+msgid "JWT Authentication Settings"
+msgstr ""
+
+#: inc/class-admin-settings.php:38
+msgid "JWT Secret"
+msgstr ""
+
+#: inc/class-admin-settings.php:50
+msgid "JWT Algorithm"
+msgstr ""
+
+#: inc/class-admin-settings.php:62
+msgid "JWT Token Lifetime"
+msgstr ""
+
+#: inc/class-admin.php:31
+msgid "JWT Authentication"
+msgstr ""
+
+#: inc/class-admin.php:32
+msgid "JWT Auth"
+msgstr ""
+
+#: inc/class-admin.php:41
+msgid "Settings"
+msgstr ""
+
+#: inc/class-plugin.php:91
+msgid "Malformed token"
+msgstr ""
+
+#: inc/class-plugin.php:95
+msgid "Token issuer does not match the server"
+msgstr ""
+
+#: inc/class-plugin.php:104
+msgid "No such user"
+msgstr ""
