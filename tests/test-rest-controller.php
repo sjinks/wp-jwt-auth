@@ -144,11 +144,13 @@ class Test_REST_Controller extends \WP_Test_REST_TestCase {
 		self::assertArrayHasKey( 'user_email', $response->data );
 		self::assertArrayHasKey( 'user_nicename', $response->data );
 		self::assertArrayHasKey( 'user_display_name', $response->data );
+		self::assertArrayHasKey( 'display_name', $response->data );
 
 		$user = new WP_User( 1 );
 		self::assertEquals( $user->user_email, $response->data['user_email'] );
 		self::assertEquals( $user->user_nicename, $response->data['user_nicename'] );
 		self::assertEquals( $user->display_name, $response->data['user_display_name'] );
+		self::assertEquals( $user->display_name, $response->data['display_name'] );
 	}
 
 	public function test_generate_token_fail(): void {
