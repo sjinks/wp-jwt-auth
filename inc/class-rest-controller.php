@@ -74,9 +74,10 @@ class REST_Controller {
 			return $user;
 		}
 
+		$settings   = Settings::instance();
 		$issued_at  = time();
 		$not_before = (int) apply_filters( 'jwt_auth_not_before', $issued_at, $issued_at );
-		$not_after  = (int) apply_filters( 'jwt_auth_not_after', $issued_at + Settings::instance()->get_lifetime(), $issued_at );
+		$not_after  = (int) apply_filters( 'jwt_auth_not_after', $issued_at + $settings->get_lifetime(), $issued_at, $settings->get_lifetime() );
 
 		$token = [
 			'iss' => get_bloginfo( 'url' ),
@@ -92,6 +93,7 @@ class REST_Controller {
 		$data    = [
 			'token'             => $encoded,
 			'user_email'        => $user->user_email,
+			'display_name'      => $user->display_name,
 			'user_nicename'     => $user->user_nicename,
 			'user_display_name' => $user->display_name,
 		];
