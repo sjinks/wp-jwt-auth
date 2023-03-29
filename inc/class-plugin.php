@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace WildWolf\WordPress\JwtAuth;
 
 use Exception;
+use Firebase\JWT\Key;
 use Firebase\JWT\JWT;
 use UnexpectedValueException;
 use WildWolf\Utils\Singleton;
@@ -86,7 +87,7 @@ final class Plugin {
 
 		if ( $token && $secret ) {
 			try {
-				$decoded = JWT::decode( $token, $secret, [ Settings::instance()->get_algorithm() ] );
+				$decoded = JWT::decode( $token, new Key( $secret, Settings::instance()->get_algorithm() ) );
 				if ( empty( $decoded->iss ) || empty( $decoded->sub ) ) {
 					throw new UnexpectedValueException( __( 'Malformed token', 'ww-jwt-auth' ) );
 				}
